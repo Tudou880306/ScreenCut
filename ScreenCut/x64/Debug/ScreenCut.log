@@ -1,8 +1,9 @@
 ﻿  ScreenCut.cpp
-f:\github\screencut\screencut\screencut.cpp(57): warning C4244: “初始化”: 从“intptr_t”转换到“int”，可能丢失数据
-f:\github\screencut\screencut\screencut.cpp(74): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
-f:\github\screencut\screencut\screencut.cpp(48): warning C4101: “k”: 未引用的局部变量
-f:\github\screencut\screencut\screencut.cpp(48): warning C4101: “j”: 未引用的局部变量
-f:\github\screencut\screencut\screencut.cpp(48): warning C4101: “i”: 未引用的局部变量
+f:\github\screencut\screencut\screencut.cpp(59): warning C4244: “初始化”: 从“intptr_t”转换到“int”，可能丢失数据
+f:\github\screencut\screencut\screencut.cpp(76): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+f:\github\screencut\screencut\screencut.cpp(77): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+f:\github\screencut\screencut\screencut.cpp(50): warning C4101: “k”: 未引用的局部变量
+f:\github\screencut\screencut\screencut.cpp(50): warning C4101: “j”: 未引用的局部变量
+f:\github\screencut\screencut\screencut.cpp(50): warning C4101: “i”: 未引用的局部变量
   ScreenCut.vcxproj -> F:\GitHub\ScreenCut\x64\Debug\ScreenCut.exe
   ScreenCut.vcxproj -> F:\GitHub\ScreenCut\x64\Debug\ScreenCut.pdb (Full PDB)

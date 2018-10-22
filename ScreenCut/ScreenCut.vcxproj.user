@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LocalDebuggerCommandArguments>G:\video\20181014\65hongwai\20181014_20181014094612_20181014102718_094613.mp4 E:\HS</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>G:\video\20181014\65hongwai\20181014_20181014104047_20181014120826_104048.mp4 "E:\video cut 20181022\20181014_20181014104047_20181014120826_104048"</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>

@@ -45,60 +45,67 @@
 
 int main(int argc, const char * argv[])
 {
-	int i, j, k;
-	int nFrmNum = 0;
-	int camflag = 0;
-	char   path[256];
-	std::string filename;
-	_finddata_t c_file;
-	//sprintf(path, "X:\\k\\cs-zheng\\监控视频\\temp");
-	sprintf(path, "G:\\video\\20181014\\65hongwai");
-	_chdir(path);
-	int	hFile = _findfirst("*.mp4", &c_file);
-	cv::Mat  cur_frame;
-	//CvCapture* pCapture = cvCaptureFromFile(c_file.name);
-	//filename = argv[1];
-	if (argc != 3)
+	try
 	{
-		return 0;
-	}
-	//sprintf(filename, (char*)argv[1]);
-	std::cout << argv[1] << std::endl;
-	
-	filename = argv[1];
-	cv::VideoCapture cap;
-	cap.open(filename);
-	cap >> cur_frame;
-	char imgname[512];
-	//IplImage* src;
-	int numFrames = cap.get(CV_CAP_PROP_FRAME_COUNT);
-	int tinttime = 1000;
-	int intval = numFrames / tinttime;
-	if (intval>100||intval<0)
-	{
-		intval = 25;
-	}
-//	goto XXX;
-//	while (_findnext(hFile, &c_file) == 0)
-//	{
-//// 		if (pCapture)
-//// 		{
-//// 			cvReleaseCapture(&pCapture);
-//// 		}
-//		cap.open(c_file.name);
-//		cap >> cur_frame;
-//		//pCapture = cvCaptureFromFile(c_file.name);
-//		if (cur_frame.empty())
-//			continue;
-//		numFrames = cap.get(CV_CAP_PROP_FRAME_COUNT); //(int)cvGetCaptureProperty(pCapture, CV_CAP_PROP_FRAME_COUNT);
-//		intval = numFrames / tinttime;
-//	XXX:
+		int i, j, k;
+		int nFrmNum = 0;
+		int camflag = 0;
+		char   path[256];
+		std::string filename;
+		_finddata_t c_file;
+		//sprintf(path, "X:\\k\\cs-zheng\\监控视频\\temp");
+		sprintf(path, "G:\\video\\20181014\\65hongwai");
+		_chdir(path);
+		int	hFile = _findfirst("*.mp4", &c_file);
+		cv::Mat  cur_frame;
+		//CvCapture* pCapture = cvCaptureFromFile(c_file.name);
+		//filename = argv[1];
+		if (argc != 3)
+		{
+			return 0;
+		}
+		//sprintf(filename, (char*)argv[1]);
+		std::cout << argv[1] << std::endl;
+
+		filename = argv[1];
+		cv::VideoCapture cap;
+		cap.open(filename);
+		cap >> cur_frame;
+		char imgname[512];
+		//IplImage* src;
+		int numFrames = cap.get(CV_CAP_PROP_FRAME_COUNT);
+		int fps = cap.get(CV_CAP_PROP_FPS);
+
+		std::cout << "video Frames count:  " << numFrames << std::endl;
+		std::cout << "video fps:  " << fps << std::endl;
+		int tinttime = 1000;
+		int intval = numFrames / tinttime;
+		if (intval > 100 || intval < 0)
+		{
+			intval = 25;
+		}
+		std::cout << "video intval:  " << intval << std::endl;
+		//	goto XXX;
+		//	while (_findnext(hFile, &c_file) == 0)
+		//	{
+		//// 		if (pCapture)
+		//// 		{
+		//// 			cvReleaseCapture(&pCapture);
+		//// 		}
+		//		cap.open(c_file.name);
+		//		cap >> cur_frame;
+		//		//pCapture = cvCaptureFromFile(c_file.name);
+		//		if (cur_frame.empty())
+		//			continue;
+		//		numFrames = cap.get(CV_CAP_PROP_FRAME_COUNT); //(int)cvGetCaptureProperty(pCapture, CV_CAP_PROP_FRAME_COUNT);
+		//		intval = numFrames / tinttime;
+		//	XXX:
 		while (!cur_frame.empty())
 		{
 			nFrmNum++;
 			if (nFrmNum%intval == 0)
 			{
-				
+
 				//IplImage* image =(IplImage*) &cur_frame;// cvCreateImage(cvSize(cur_frame.cols, cur_frame.rows), 8, 3);
 				if (cur_frame.data == NULL)
 				{
@@ -110,23 +117,24 @@ int main(int argc, const char * argv[])
 				IplImage* src = cvCreateImage(cvSize(image->width, image->height), 8, 3);
 				cvResize(image, src);
 
-				sprintf(imgname, "%s\\%d.jpg",argv[2],  nFrmNum + 1000000);
+				sprintf(imgname, "%s\\%d.jpg", argv[2], nFrmNum + 1000000);
 				char cmd[256];
-				sprintf(cmd, "mkdir %s", argv[2]);
+				sprintf(cmd, "mkdir \"%s\"", argv[2]);
 				if (_access(argv[2], 0) == -1)
 				{
 					system(cmd);
 				}
-				
-				
+
+
 				//cv::imwrite(imgname, image);
 				cvSaveImage(imgname, src);
 				//cvNamedWindow("", 0);
-				 cvShowImage("", src);
+				cvShowImage("", src);
 				cvWaitKey(1);
 				//cvReleaseImage(&image);
 
 			}
+			printf("processed ..... %.3f %% \r", (double)100 * nFrmNum / numFrames); // '\r'
 			cap >> cur_frame;
 			char key = cvWaitKey(1);
 			if (key == 27)
@@ -138,9 +146,16 @@ int main(int argc, const char * argv[])
 		nFrmNum = 0;
 		//cvReleaseImage(&src);
 		//cvReleaseCapture(&pCapture);
-	//}
-	//释放高斯模型参数占用内存   
-	//cvReleaseCapture(&pCapture);
-	return 0;
+		//}
+		//释放高斯模型参数占用内存   
+		//cvReleaseCapture(&pCapture);
+		return 0;
+	}
+	catch (...)
+	{
+		cvWaitKey(0);
+	}
+
+	
 }
 
