@@ -1,0 +1,14 @@
+﻿  ScreenCut.cpp
+ScreenCut.cpp(54): warning C4244: “初始化”: 从“intptr_t”转换到“int”，可能丢失数据
+ScreenCut.cpp(63): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+ScreenCut.cpp(82): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+ScreenCut.cpp(46): warning C4101: “k”: 未引用的局部变量
+ScreenCut.cpp(46): warning C4101: “j”: 未引用的局部变量
+ScreenCut.cpp(46): warning C4101: “i”: 未引用的局部变量
+  正在生成代码
+  1 of 17 functions ( 5.9%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+  ScreenCut.vcxproj -> F:\GitHub\ScreenCut\x64\Release\ScreenCut.exe
+  ScreenCut.vcxproj -> F:\GitHub\ScreenCut\x64\Release\ScreenCut.pdb (Full PDB)
