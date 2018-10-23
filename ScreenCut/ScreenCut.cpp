@@ -78,11 +78,11 @@ int main(int argc, const char * argv[])
 
 		std::cout << "video Frames count:  " << numFrames << std::endl;
 		std::cout << "video fps:  " << fps << std::endl;
-		int tinttime = 1000;
+		int tinttime = 500;
 		int intval = numFrames / tinttime;
 		if (intval > 100 || intval < 0)
 		{
-			intval = 25;
+			intval = 50;
 		}
 		std::cout << "video intval:  " << intval << std::endl;
 		//	goto XXX;
