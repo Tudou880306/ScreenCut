@@ -131,7 +131,7 @@ int main(int argc, const char * argv[])
 				//cvNamedWindow("", 0);
 				cvShowImage("", src);
 				cvWaitKey(1);
-				//cvReleaseImage(&image);
+				cvReleaseImage(&src);
 
 			}
 			printf("processed ..... %.3f %% \r", (double)100 * nFrmNum / numFrames); // '\r'
